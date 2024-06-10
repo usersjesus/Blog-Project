@@ -1,3 +1,6 @@
 <%- include("partials/navbar.ejs") %>
-<p>body here</p>
+<% posts.forEach(function(post) { %>
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+<% }); %>
 <%- include("partials/footer.ejs") %>
