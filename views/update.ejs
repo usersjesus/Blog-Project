@@ -1,0 +1,9 @@
+<%- include("partials/navbar.ejs") %>
+<form action="/update/<%= post.id %>" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value="<%= post.title %>" required><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" rows="4" cols="50" required><%= post.content %></textarea><br>
+    <input type="submit" value="Update">
+</form>
+<%- include("partials/footer.ejs") %>

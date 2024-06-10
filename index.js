@@ -8,7 +8,6 @@ let posts = [];
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -30,6 +29,19 @@ app.post("/list", (req, res) => {
 
 app.get("/add", (req, res) => {
     res.render("add");
+});
+
+app.get("/update/:id", (req, res) => {
+    const id = req.params.id;
+    const post = posts[id];
+    res.render("update", { post: { ...post, id: id } });
+});
+
+app.post("/update/:id", (req, res) => {
+    const id = req.params.id;
+    const updatedPost = req.body;
+    posts[id] = updatedPost;
+    res.redirect('/list');
 });
 
 app.listen(port, () => {

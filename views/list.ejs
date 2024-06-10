@@ -1,6 +1,22 @@
 <%- include("partials/navbar.ejs") %>
-<% posts.forEach(function(post) { %>
-    <h2><%= post.title %></h2>
-    <p><%= post.content %></p>
-<% }); %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% posts.forEach(function(post, index) { %>
+            <tr>
+                <td><%= post.title %></td>
+                <td><%= post.content %></td>
+                <td><a class="edit" href="/update/<%= index %>">Edit/</a><a class="delete" href="/delete/<%= index %>">Delete</a></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
 <%- include("partials/footer.ejs") %>
