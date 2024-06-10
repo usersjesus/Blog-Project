@@ -3,5 +3,11 @@
 </header>
 <h1>WELCOME TO MY BLOG!</h1>
 <%- include("partials/navbar.ejs") %>
-<p>body here</p>
+<form action="/list" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
+    <input type="submit" value="Post">
+</form>
 <%- include("partials/footer.ejs") %>
