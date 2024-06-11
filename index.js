@@ -44,6 +44,18 @@ app.post("/update/:id", (req, res) => {
     res.redirect('/list');
 });
 
+app.get("/view/:id", (req, res) => {
+    const id = req.params.id;
+    const post = posts[id];
+    res.render("view", { post: post });
+});
+
+app.delete("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    posts.splice(id, 1);
+    res.redirect('/list');
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`);
 });
