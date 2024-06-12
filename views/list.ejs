@@ -1,25 +1,27 @@
 <%- include("partials/navbar.ejs") %>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Modify</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container mt-5">
+    <div class="row">
         <% posts.forEach(function(post, index) { %>
-            <tr>
-                <td><a class="title" href="/view/<%= index %>"><%= post.title %></a></td>
-                <td>
-                    <a class="edit" href="/update/<%= index %>">Edit</a>
-                    /
-                    <a class="delete" href="#" onclick="confirmDelete('<%= index %>')">Delete</a>
-                </td>
-            </tr>
+            <div class="col-md-4 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <!-- You can customize the card image or content based on your post data -->
+                    <div class="card-body">
+                        <h5 class="card-title"><%= post.title %></h5>
+                        <p class="card-text"><%= post.content %></p>
+                        <a href="/view/<%= index %>" class="btn btn-primary">View Details</a>
+                        <!-- Add edit and delete buttons here if needed -->
+                        <a class="edit" href="/update/<%= index %>">Edit</a>
+                        /
+                        <a class="delete" href="#" onclick="confirmDelete('<%= index %>')">Delete</a>
+                    </div>
+                </div>
+            </div>
         <% }); %>
-    </tbody>
-</table>
+    </div>
+</div>
+
+
 
 <script>
 function confirmDelete(id) {

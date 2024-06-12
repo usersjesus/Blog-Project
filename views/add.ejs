@@ -1,9 +1,17 @@
 <%- include("partials/navbar.ejs") %>
-<form action="/list" method="POST">
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" required><br>
-    <label for="content">Content:</label><br>
-    <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
-    <input type="submit" value="Post">
-</form>
+
+<div class="container mt-5">
+    <form action="/list" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content:</label>
+            <textarea id="content" class="form-control" name="content" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</div>
+
 <%- include("partials/footer.ejs") %>
